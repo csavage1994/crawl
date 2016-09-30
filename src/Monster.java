@@ -6,10 +6,17 @@ public class Monster {
     public boolean isAlive;
     public String token;
 
+    public boolean checkStatus(){
+        if(this.health <= 0){
+            this.isAlive = false;
+        }
+        return this.isAlive;
+    }
+
     public Monster(int health, String token){
         this.health = health;
-        this.x = (int) (Math.random() * 11);
-        this.y = (int) (Math.random() * 11);
+        this.x = (int) (Math.random() * 10);
+        this.y = (int) (Math.random() * 10);
         this.token = token;
         this.isAlive = true;
     }

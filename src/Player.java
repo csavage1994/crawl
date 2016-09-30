@@ -1,11 +1,19 @@
 public class Player {
 
-    private int health;
+    public int health;
+    private int strength;
     public int x;
     public int y;
     public int prevX;
     public int prevY;
     public boolean alive = true;
+    public int monstersKilled = 0;
+
+    public boolean attack(Monster monster){
+        monster.health--;
+        this.health--;
+        return monster.checkStatus();
+    }
 
     private void moveUp(){
         if(this.x > 0){
@@ -59,8 +67,9 @@ public class Player {
 
     public Player(){
         this.health = 20;
-        this.x = (int) (Math.random() * 11);
-        this.y = (int) (Math.random() * 11);
+        this.strength = 1;
+        this.x = (int) (Math.random() * 10);
+        this.y = (int) (Math.random() * 10);
         this.prevX = this.x;
         this.prevY = this.y;
     }
